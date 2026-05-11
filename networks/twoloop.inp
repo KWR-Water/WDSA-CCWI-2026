@@ -1,0 +1,145 @@
+[TITLE]
+shamir -- Bragalli, D'Ambrosio, Lee, Lodi, Toth (2008)
+
+[JUNCTIONS]
+;ID              	Elev        	Demand      	Pattern         
+ 2               	150.00      	27.77       	                	; 
+ 3               	160.00      	27.77       	                	; 
+ 4               	155.00      	33.33       	                	; 
+ 5               	150.00      	75.00       	                	; 
+ 6               	165.00      	91.67       	                	; 
+ 7               	160.00      	55.55       	                	; 
+
+[RESERVOIRS]
+;ID              	Head        	Pattern         
+ 1               	210.00      	                	; 
+
+[TANKS]
+;ID              	Elevation   	InitLevel   	MinLevel    	MaxLevel    	Diameter    	MinVol      	VolCurve        	Overflow
+
+[PIPES]
+;ID              	Node1           	Node2           	Length      	Diameter    	Roughness   	MinorLoss   	Status
+ 1               	1               	2               	1000.00     	457.20      	130.00      	0.00        	Open  	; 
+ 2               	2               	3               	1000.00     	203         	130.00      	0.00        	Open  	; 
+ 3               	2               	4               	1000.00     	457         	130.00      	0.00        	Open  	; 
+ 4               	4               	5               	1000.00     	153         	130.00      	0.00        	Open  	; 
+ 5               	4               	6               	1000.00     	406.40      	130.00      	0.00        	Open  	; 
+ 6               	6               	7               	1000.00     	254.00      	130.00      	0.00        	Open  	; 
+ 7               	3               	5               	1000.00     	153         	130.00      	0.00        	Open  	; 
+ 8               	5               	7               	1000.00     	153         	130.00      	0.00        	Open  	; 
+
+[PUMPS]
+;ID              	Node1           	Node2           	Parameters
+
+[VALVES]
+;ID              	Node1           	Node2           	Diameter    	Type	Setting     	MinorLoss   
+
+[TAGS]
+
+[DEMANDS]
+;Junction        	Demand      	Pattern         	Category
+
+[STATUS]
+;ID              	Status/Setting
+
+[PATTERNS]
+;ID              	Multipliers
+
+[CURVES]
+;ID              	X-Value     	Y-Value
+
+[CONTROLS]
+ 
+
+
+[RULES]
+
+
+
+[ENERGY]
+ Global Efficiency  	75
+ Global Price       	0
+ Demand Charge      	0
+
+[EMITTERS]
+;Junction        	Coefficient
+
+[QUALITY]
+;Node            	InitQual
+
+[SOURCES]
+;Node            	Type        	Quality     	Pattern
+
+[REACTIONS]
+;Type     	Pipe/Tank       	Coefficient
+
+
+[REACTIONS]
+ Order Bulk            	1
+ Order Tank            	1
+ Order Wall            	1
+ Global Bulk           	0
+ Global Wall           	0
+ Limiting Potential    	0
+ Roughness Correlation 	0
+
+[MIXING]
+;Tank            	Model
+
+[TIMES]
+ Duration           	0:00 
+ Hydraulic Timestep 	1:00 
+ Quality Timestep   	0:05 
+ Pattern Timestep   	2:00 
+ Pattern Start      	0:00 
+ Report Timestep    	1:00 
+ Report Start       	0:00 
+ Start ClockTime    	12 am
+ Statistic          	NONE
+
+[REPORT]
+ Status             	Yes
+ Summary            	No
+ Page               	0
+
+[OPTIONS]
+ Units              	LPS
+ Headloss           	H-W
+ Specific Gravity   	1.0
+ Viscosity          	1.0
+ Trials             	40
+ Accuracy           	0.001
+ CHECKFREQ          	2
+ MAXCHECK           	10
+ DAMPLIMIT          	0
+ Unbalanced         	Continue 10
+ Pattern            	1
+ Demand Multiplier  	1.0
+ Emitter Exponent   	0.5
+ Quality            	Chlorine mg/L
+ Diffusivity        	1.0
+ Tolerance          	0.01
+
+[COORDINATES]
+;Node            	X-Coord           	Y-Coord
+2               	2000.000          	3000.000          
+3               	1000.000          	3000.000          
+4               	2000.000          	2000.000          
+5               	1000.000          	2000.000          
+6               	2000.000          	1000.000          
+7               	1000.000          	1000.000          
+1               	3000.000          	3000.000          
+
+[VERTICES]
+;Link            	X-Coord           	Y-Coord
+
+[LABELS]
+;X-Coord             Y-Coord             Label & Anchor Node
+
+[BACKDROP]
+  DIMENSIONS  	980.000           	980.000           	5000.000          	5000.000          
+ UNITS          	None
+ FILE           	
+ OFFSET         	0.00            	0.00            
+
+[END]
