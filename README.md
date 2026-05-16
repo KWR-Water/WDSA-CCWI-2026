@@ -19,6 +19,7 @@ Put the agenda here
 ## Repository Structure
 
 ```
+├── demos/             # New York Tunnels demonstration application (pocketNYT.exe)
 ├── networks/          # EPANET .inp network files used in the notebooks
 │                      # (networks already included in EPyT are not duplicated here)
 ├── notebooks/         # One Jupyter notebook per course part
