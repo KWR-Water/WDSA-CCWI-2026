@@ -358,30 +358,20 @@ def compare_robust_vs_flexible_strategies(
     stage1,
     later,
 ):
-    """
-    Compare the robust and flexible strategies.
-
-    Robust:
-    - one pathway that works for all scenarios
-
-    Flexible:
-    - one first-stage decision
-    - later decisions can change by scenario
-    """
-
+    # Find the cheapest robust solution with zero deficit
     feasible_indices = [
         i for i, r in enumerate(pareto_records)
         if r["total_deficit"] == 0
     ]
 
-    if len(feasible_indices) == 0:
-        print("⚠ No robust solution with zero deficit — using the lowest-deficit one.")
-        robust_idx = int(np.argmin([r["total_deficit"] for r in pareto_records]))
-    else:
+    if feasible_indices:
         robust_idx = min(
             feasible_indices,
             key=lambda i: pareto_records[i]["cost"]
         )
+    else:
+        print("⚠ No robust solution with zero deficit — using minimum deficit.")
+        robust_idx = int(np.argmin([r["total_deficit"] for r in pareto_records]))
 
     robust_record = pareto_records[robust_idx]
     robust_cost = robust_record["cost"]
@@ -394,6 +384,7 @@ def compare_robust_vs_flexible_strategies(
 
     robust_stage1_cost = robust_report["stage_nominal_costs"][0]
 
+    # Flexible costs
     stage1 = stage1.astype(int)
 
     flex_stage1_cost = float(np.sum(
@@ -403,15 +394,57 @@ def compare_robust_vs_flexible_strategies(
     flex_expected_cost = flex_model.calculateExpectedCost(stage1, later)
 
     saving = robust_cost - flex_expected_cost
+    saving_pct = 100 * saving / robust_cost
 
-    W = 55
-    print("─" * W)
-    print(f"{'':20} {'Robust':>15}  {'Flexible':>15}")
-    print("─" * W)
-    print(f"{'Initial commitment':20} €{robust_stage1_cost:>13,.0f}  €{flex_stage1_cost:>13,.0f}")
-    print(f"{'Expected total cost':20} €{robust_cost:>13,.0f}  €{flex_expected_cost:>13,.0f}")
-    print(f"{'Saving (flexible)':20} {'':>15}  €{saving:>13,.0f}")
-    print("─" * W)
+    # Summary table
+    fig, ax = plt.subplots(figsize=(10, 3))
+    fig.patch.set_facecolor("white")
+
+    ax.axis("off")
+    ax.set_title(
+        "Robust vs Flexible Strategy Comparison",
+        fontweight="bold",
+        fontsize=12,
+        pad=10,
+    )
+
+    t = ax.table(
+        cellText=[
+            [
+                "Initial commitment",
+                f"${robust_stage1_cost:,.0f}",
+                f"${flex_stage1_cost:,.0f}",
+            ],
+            [
+                "Expected total cost",
+                f"${robust_cost:,.0f}",
+                f"${flex_expected_cost:,.0f}",
+            ],
+            [
+                "Saving (flexible)",
+                "",
+                f"${saving:,.0f}  ({saving_pct:.1f}%)",
+            ],
+        ],
+        colLabels=["", "Robust", "Flexible"],
+        cellLoc="center",
+        loc="upper center",
+        colWidths=[0.35, 0.28, 0.28],
+    )
+
+    t.auto_set_font_size(False)
+    t.set_fontsize(10)
+    t.scale(1, 1.8)
+
+    for j in range(3):
+        t[0, j].set_facecolor("#f0f0f0")
+        t[0, j].set_text_props(fontweight="bold")
+
+        t[3, j].set_facecolor("#f0f0f0")
+        t[3, j].set_text_props(fontweight="bold")
+
+    plt.tight_layout()
+    plt.show()
 
     return {
         "robust_idx": robust_idx,
