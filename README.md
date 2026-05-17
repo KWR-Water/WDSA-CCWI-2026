@@ -16,6 +16,8 @@ Authors
 
 Put the agenda here
 
+> Pangaea has just compiled (15:55/Sunday) but is almost unusable - might be suitable for 1-to-1 demonstrations but not for presentation to a wider audience. I haven't found enough material to do it in PowerPoint so, regrettably, I think I'm going to have to scrub this section for tomorrow :-(
+
 ## Repository Structure
 
 ```
