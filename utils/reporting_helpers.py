@@ -350,3 +350,76 @@ def summarise_flexible_solution(pop_flexible, flex_problem, model):
         "expected_cost": expected_cost,
         "scenario_results": scenario_results,
     }
+
+def compare_robust_vs_flexible_strategies(
+    model_robust,
+    flex_model,
+    pareto_records,
+    stage1,
+    later,
+):
+    """
+    Compare the robust and flexible strategies.
+
+    Robust:
+    - one pathway that works for all scenarios
+
+    Flexible:
+    - one first-stage decision
+    - later decisions can change by scenario
+    """
+
+    feasible_indices = [
+        i for i, r in enumerate(pareto_records)
+        if r["total_deficit"] == 0
+    ]
+
+    if len(feasible_indices) == 0:
+        print("⚠ No robust solution with zero deficit — using the lowest-deficit one.")
+        robust_idx = int(np.argmin([r["total_deficit"] for r in pareto_records]))
+    else:
+        robust_idx = min(
+            feasible_indices,
+            key=lambda i: pareto_records[i]["cost"]
+        )
+
+    robust_record = pareto_records[robust_idx]
+    robust_cost = robust_record["cost"]
+    x_robust = robust_record["x"]
+
+    robust_report = model_robust.calculateObjectives(
+        x_robust,
+        return_report=True
+    )
+
+    robust_stage1_cost = robust_report["stage_nominal_costs"][0]
+
+    stage1 = stage1.astype(int)
+
+    flex_stage1_cost = float(np.sum(
+        flex_model.UNIT_COST[stage1] * flex_model.pipe_lengths
+    ))
+
+    flex_expected_cost = flex_model.calculateExpectedCost(stage1, later)
+
+    saving = robust_cost - flex_expected_cost
+
+    W = 55
+    print("─" * W)
+    print(f"{'':20} {'Robust':>15}  {'Flexible':>15}")
+    print("─" * W)
+    print(f"{'Initial commitment':20} €{robust_stage1_cost:>13,.0f}  €{flex_stage1_cost:>13,.0f}")
+    print(f"{'Expected total cost':20} €{robust_cost:>13,.0f}  €{flex_expected_cost:>13,.0f}")
+    print(f"{'Saving (flexible)':20} {'':>15}  €{saving:>13,.0f}")
+    print("─" * W)
+
+    return {
+        "robust_idx": robust_idx,
+        "robust_record": robust_record,
+        "robust_report": robust_report,
+        "robust_stage1_cost": robust_stage1_cost,
+        "robust_cost": robust_cost,
+        "flex_stage1_cost": flex_stage1_cost,
+        "flex_expected_cost": flex_expected_cost,
+        "saving_flexible": saving,
+    }
