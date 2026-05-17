@@ -14,9 +14,17 @@ Authors
 
 ## Agenda
 
-Put the agenda here
-
-> Pangaea has just compiled (15:55/Sunday) but is almost unusable - might be suitable for 1-to-1 demonstrations but not for presentation to a wider audience. I haven't found enough material to do it in PowerPoint so, regrettably, I think I'm going to have to scrub this section for tomorrow :-(
+| Time | Session |
+|------|---------|
+| 09:30–10:25 | Lecture: Modern optimisation approaches for water distribution systems |
+| 10:25–10:35 | New York Tunnels benchmark demonstration |
+| 10:35–11:00 | Hands-on Part 1: Introduction to optimisation |
+| 11:00–11:30 | Break |
+| 11:30–11:40 | Continuation of Hands-on Part 1 if needed |
+| 11:40–12:10 | Hands-on Part 2: Deterministic, Robust, and flexible staged optimisation |
+| 12:10–12:35 | Hands-on Part 3: Design and operations |
+| 12:35–12:50 | MCP demonstration |
+| 12:50–13:00 | Questions, feedback form and closing remarks |
 
 ## Repository Structure
 

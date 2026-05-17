@@ -6,15 +6,15 @@
 
 ### Part 1 — Pipe sizing optimisation
 
-*Classic design in Python. Two-loop network*
+*Classic design in Python. Two-loop network.*
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_1.ipynb)
 
 ### Part 2 — Staged design under uncertainty
 
-*Deterministic, Rubust and Flexible Staged optimisation. Two-loop network*
+*Deterministic, Rubust and Flexible Staged optimisation. Two-loop network.*
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_2.ipynb)
+<!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_2.ipynb) -->
 
 ### Part 3 — Design and operation
 
