@@ -77,3 +77,9 @@ jupyter notebook notebooks/
 > ```
 > 
 > Note that `condacolab.install()` will restart the Colab runtime — this is expected. Run the second cell after the restart completes.
+
+## New York Tunnels Benchmark Problem Demonstration Application
+
+The problem executable (pocketNYT.exe) may be freely redistributed and reused. The software is provided "as is" and without warranty of any kind, express or implied.
+
+The executable is digitally signed by KWR Water Research Institute and does not require installation, administrative rights or any network access.
