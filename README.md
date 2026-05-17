@@ -16,6 +16,8 @@ Authors
 
 Put the agenda here
 
+> Pangaea has just compiled (15:55/Sunday) but is almost unusable - might be suitable for 1-to-1 demonstrations but not for presentation to a wider audience. I haven't found enough material to do it in PowerPoint so, regrettably, I think I'm going to have to scrub this section for tomorrow :-(
+
 ## Repository Structure
 
 ```
@@ -77,3 +79,11 @@ jupyter notebook notebooks/
 > ```
 > 
 > Note that `condacolab.install()` will restart the Colab runtime — this is expected. Run the second cell after the restart completes.
+
+## New York Tunnels Benchmark Problem Demonstration Application
+
+The problem executable (pocketNYT.exe) may be freely redistributed and reused. The software is provided "as is" and without warranty of any kind, express or implied.
+
+The executable is digitally signed by KWR Water Research Institute and does not require installation, administrative rights or any network access.
+
+For bug reports/feature requests etc. please contact [Mark Morley](mailto://mark.morley@kwrwater.nl)
