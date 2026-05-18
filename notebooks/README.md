@@ -17,7 +17,6 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_2.ipynb)
 
 ### Part 3 — Design and operation
-https://github.com/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_2.ipynb)  
 *Pipe sizing + pump scheduling with extended period simulation on the Anytown benchmark.*
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KWR-Water/WDSA-CCWI-2026-SC1/blob/main/notebooks/wds_optimisation_part_3.ipynb)
